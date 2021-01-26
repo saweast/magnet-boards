@@ -80,6 +80,7 @@
     width: 100%;
 
     .action {
+        box-sizing: border-box;
         appearance: none;
         display: grid;
         height: 75px;
@@ -93,6 +94,22 @@
         &.action__step1 {
             grid-column: 1fr;
             grid-row: 1fr;
+        }
+
+        .action__info {
+            position: absolute;
+            top: 5px;
+            width: 100%;
+
+            .action__step {
+                position: absolute;
+                left: 5px;
+            }
+
+            .action__price {
+                position: absolute;
+                right: 5px;
+            }
         }
 
         .action__title {
@@ -143,6 +160,10 @@
             object-fit: contain;
             object-position: center;
             opacity: 0.5;
+
+            &.type__image--grid {
+                position: absolute;
+            }
         }
     }
 
@@ -185,4 +206,10 @@
     }
 }
 
+.fileUploader {
+    height: 100%;
 
+    .fileContainer{
+        height: 100%;
+    }
+}
