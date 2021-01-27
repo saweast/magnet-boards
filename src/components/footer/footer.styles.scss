@@ -1,0 +1,48 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    .action {
+        box-sizing: border-box;
+        appearance: none;
+        display: grid;
+        height: 75px;
+        width: 100%;
+        outline: none;
+        background: none;
+        border: 2px solid black;
+        background-color: white;
+        cursor: pointer;
+
+        &.action__step1 {
+            grid-column: 1fr;
+            grid-row: 1fr;
+        }
+
+        .action__info {
+            position: absolute;
+            top: 5px;
+            width: 100%;
+
+            .action__step {
+                position: absolute;
+                left: 5px;
+            }
+
+            .action__price {
+                position: absolute;
+                right: 5px;
+            }
+        }
+
+        .action__title {
+            font-size: 28px;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
