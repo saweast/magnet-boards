@@ -6,7 +6,7 @@ import RadioType from '../radioType/radioType.component';
 import type1 from './type1.png';
 import type2 from './type2.png';
 
-export default class Step0 extends Component {
+export default class Step1 extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -30,6 +30,7 @@ export default class Step0 extends Component {
     handleChange = (event) => {
         const { types } = this.state;
         const selectedType = types.filter((type) => type.id === +event.currentTarget.value );
+
         this.props.handleType(selectedType[0]);
     }
 

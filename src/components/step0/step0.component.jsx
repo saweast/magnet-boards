@@ -5,7 +5,7 @@ import image1 from './image1.jpg';
 import image2 from './image2.jpg';
 import image3 from './image3.jpg';
 
-export default class Step0 extends Component {
+export default class dStep0 extends Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -13,6 +13,7 @@ export default class Step0 extends Component {
 
     render = () => {
         const { title } = this.props;
+
         return (
             <Fragment>
                 <article className="content">

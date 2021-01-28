@@ -5,40 +5,17 @@ import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
 import Steps from '../../components/steps/steps.component';
 
-import image1 from './image1.jpg';
-import image2 from './image2.jpg';
-import image3 from './image3.jpg';
-
 class MainPage extends Component {
     constructor(props) {
         super(props);
-
-        this.backgrounds = [
-            {
-                image: 'custom',
-                price: 250,
-            },
-            {
-                image: image1,
-                price: 50,
-            },
-            {
-                image: image2,
-                price: 100,
-            },
-            {
-                image: image3,
-                price: 75,
-            }
-        ]
-
         this.state = {
             currentStep: 0,
             product: {
                 price: 0,
-                type: null,
                 picture: null,
+                type: null,
             },
+            picture: null,
             type: null,
         }
     }
@@ -55,6 +32,18 @@ class MainPage extends Component {
         })
     }
 
+    handlePicture = (newBackground) => {
+        this.setState({
+            picture: newBackground
+        })
+    }
+
+    handleStuff = (newStuff) => {
+        this.setState({
+            stuff: newStuff
+        })
+    }
+
     render() {
         const { currentStep, product } = this.state;
 
@@ -67,6 +56,9 @@ class MainPage extends Component {
                         currentStep={currentStep}
                         product={product}
                         handleType={this.handleType}
+                        handlePicture={this.handlePicture}
+                        handleStuff={this.handleStuff}
+                        data={this.state}
                     />
                 </main>
 
