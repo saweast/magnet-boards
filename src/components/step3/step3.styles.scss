@@ -1,0 +1,19 @@
+.boardPreview {
+    height: 300px;
+    width: 400px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 50px;
+
+    .boardPreview__image,
+    .boardPreview__grid {
+        position: absolute;
+        height: inherit;
+        width: inherit;
+        object-fit: contain;
+        object-position: center;
+    }
+}
+
