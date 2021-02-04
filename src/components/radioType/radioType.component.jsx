@@ -2,28 +2,28 @@ import React, { Component, Fragment } from 'react';
 import './radioType.styles.scss';
 
 export default class RadioType extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
+  constructor(props) {
+    super(props);
+    this.state = {}
+  }
 
-    render = () => {
-        const { image, name, price, id } = this.props;
+  render = () => {
+    const { image, name, price, id } = this.props;
 
-        return (
-            <Fragment>
-                <input
-                    value={ id }
-                    type="radio"
-                    name="type"
-                    id={ id }
-                    onChange={ this.props.handleChange }
-                />
-                <label className="type__wrapper" checked htmlFor={ id }>
-                    <h3 className="type__title">{ name }</h3>
-                    <img className="type__image" src={ image } alt={ name } />
-                </label>
-            </Fragment>
-        );
-    }
+    return (
+      <Fragment>
+        <input
+          value={id}
+          type="radio"
+          name="type"
+          id={id}
+          onChange={this.props.handleChange}
+        />
+        <label className="type__wrapper" checked htmlFor={id}>
+          <h3 className="type__title">{name}</h3>
+          <img className="type__image" src={image} alt={name} />
+        </label>
+      </Fragment>
+    );
+  }
 }

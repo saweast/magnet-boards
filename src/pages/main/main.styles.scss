@@ -1,23 +1,28 @@
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Roboto Mono', monospace;
-    font-weight: bold;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Mono", monospace;
+  font-weight: bold;
 }
 
 body {
-    font-family: 'Jura', sans-serif;
-    size: 16px;
-    color: black;
+  font-family: "Jura", sans-serif;
+  size: 16px;
+  color: black;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    transition: 0.3s ease;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: 0.3s ease;
 }
 
 img {
-    width: 100%;
-    object-fit: contain;
-    object-position: center;
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
 }

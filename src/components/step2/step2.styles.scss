@@ -1,27 +1,26 @@
 .fileUploader {
-
-    &.checked {
-        .fileContainer {
-            border: 2px solid rgba($color: black, $alpha: 1);
-        }
-    }
-
+  &.checked {
     .fileContainer {
-        height: 100%;
-        border-radius: 0;
-        box-shadow: 0 0 0 0 transparent;
-        margin: 0;
-        padding: 0;
-        border: 2px solid rgba($color: black, $alpha: 0.2);
+      border: 2px solid rgba($color: black, $alpha: 1);
     }
+  }
+
+  .fileContainer {
+    height: 100%;
+    border-radius: 0;
+    box-shadow: 0 0 0 0 transparent;
+    margin: 0;
+    padding: 0;
+    border: 2px solid rgba($color: black, $alpha: 0.2);
+  }
 }
 
 .type__wrapper {
-    &.checked {
-        border: 2px solid rgba($color: black, $alpha: 1);
-    }
+  &.checked {
+    border: 2px solid rgba($color: black, $alpha: 1);
+  }
 
-    button {
-        width: 100%;
-    }
+  button {
+    width: 100%;
+  }
 }
