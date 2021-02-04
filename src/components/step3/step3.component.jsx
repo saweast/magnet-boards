@@ -9,41 +9,53 @@ export default class Step3 extends Component {
       markers: [
         {
           color: 'червоний',
-          min: '1',
-          default: '1',
-          max: '4',
+          id: 'red',
         },
         {
           color: 'помаранчевий',
-          min: '1',
-          default: '1',
-          max: '4',
+          id: 'orange',
         },
         {
-          color: 'white',
-          min: '0',
-          default: '0',
-          max: '4',
+          color: 'білий',
+          id: 'white',
         },
       ],
       erasers: [
         {
-          color: 'червоний',
-          min: '1',
-          default: '1',
-          max: '4',
+          color: 'Витирачка',
+          id: 'eraser',
         },
       ]
     }
 
     this.state = {
+      red: 1,
+      orange: 1,
+      white: 1,
+      eraser: 1,
+    }
+  }
 
+  handleChange = (object, value) => {
+    if (0 >= +value) {
+      this.setState({
+        [object]: 0
+      })
+    } else if (3 <= +value) {
+      this.setState({
+        [object]: 3
+      })
+    } else {
+      this.setState({
+        [object]: value
+      })
     }
   }
 
   render = () => {
     const { title } = this.props;
     const { type, picture } = this.props.data;
+    const { markers, erasers } = this.items;
 
     return (
       <article className="content">
@@ -58,14 +70,41 @@ export default class Step3 extends Component {
           <div className="boardAdditional__group">
             <h3 className="boardAdditional__groupTitle">Маркери</h3>
             <div className="boardAdditional__list">
-              <div className="boardAdditional__item item">
-                <h4 className="item__color">Color</h4>
-                <div className="item__numberWrapper">
-                  <button className="decrease" onClick={() => { }}>-</button>
-                  <input readOnly name="Color" type="number" className="item__numberInput" min="1" max="5" defaultValue="0" />
-                  <button className="increase" onClick={() => { }}>+</button>
-                </div>
-              </div>
+
+              {markers.map((marker, index) => {
+                return (
+                  <div className="boardAdditional__item item" key={index}>
+                    <h4 className="item__color">{marker.color}</h4>
+                    <div className="item__numberWrapper">
+                      <button className="decrease" onClick={() => { this.handleChange(marker.id, this.state[marker.id] - 1) }}>-</button>
+                      <input readOnly name="Color" type="number" className="item__numberInput" value={+this.state[marker.id]} />
+                      <button className="increase" onClick={() => { this.handleChange(marker.id, this.state[marker.id]+1) }}>+</button>
+                    </div>
+                  </div>
+                )
+                }
+              )}
+            </div>
+          </div>
+          <div className="boardAdditional__group">
+            <h3 className="boardAdditional__groupTitle">Гумка</h3>
+            <div className="boardAdditional__list">
+
+              {erasers.map((eraser, index) => {
+                return (
+                  <div className="boardAdditional__item item" key={index}>
+                    <h4 className="item__color">{eraser.color}</h4>
+                    <div className="item__numberWrapper">
+                      <button className="decrease" onClick={() => { this.handleChange(eraser.id, this.state[eraser.id] - 1) }}>-</button>
+                      <input readOnly name="Color" type="number" className="item__numberInput" value={+this.state[eraser.id]} />
+                      <button className="increase" onClick={() => { this.handleChange(eraser.id, this.state[eraser.id]+1) }}>+</button>
+                    </div>
+                  </div>
+                )
+                }
+              )}
+
+              
             </div>
           </div>
         </section>
