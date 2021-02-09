@@ -12,12 +12,8 @@ export default class Step3 extends Component {
           id: 'red',
         },
         {
-          color: 'помаранчевий',
-          id: 'orange',
-        },
-        {
-          color: 'білий',
-          id: 'white',
+          color: 'чорний',
+          id: 'black',
         },
       ],
       erasers: [
@@ -30,8 +26,7 @@ export default class Step3 extends Component {
 
     this.state = {
       red: 1,
-      orange: 1,
-      white: 1,
+      black: 1,
       eraser: 1,
     }
   }
@@ -40,15 +35,15 @@ export default class Step3 extends Component {
     if (0 >= +value) {
       this.setState({
         [object]: 0
-      })
+      }, this.props.handleStuffOrContact(object, value))
     } else if (3 <= +value) {
       this.setState({
         [object]: 3
-      })
+      }, this.props.handleStuffOrContact(object, value))
     } else {
       this.setState({
         [object]: value
-      })
+      }, this.props.handleStuffOrContact(object, value))
     }
   }
 
@@ -78,7 +73,7 @@ export default class Step3 extends Component {
                     <div className="item__numberWrapper">
                       <button className="decrease" onClick={() => { this.handleChange(marker.id, this.state[marker.id] - 1) }}>-</button>
                       <input readOnly name="Color" type="number" className="item__numberInput" value={+this.state[marker.id]} />
-                      <button className="increase" onClick={() => { this.handleChange(marker.id, this.state[marker.id]+1) }}>+</button>
+                      <button className="increase" onClick={() => { this.handleChange(marker.id, this.state[marker.id] + 1) }}>+</button>
                     </div>
                   </div>
                 )
@@ -89,7 +84,6 @@ export default class Step3 extends Component {
           <div className="boardAdditional__group">
             <h3 className="boardAdditional__groupTitle">Гумка</h3>
             <div className="boardAdditional__list">
-
               {erasers.map((eraser, index) => {
                 return (
                   <div className="boardAdditional__item item" key={index}>
@@ -103,8 +97,6 @@ export default class Step3 extends Component {
                 )
                 }
               )}
-
-              
             </div>
           </div>
         </section>

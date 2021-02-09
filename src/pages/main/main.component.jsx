@@ -8,15 +8,18 @@ import Steps from '../../components/steps/steps.component';
 class MainPage extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       currentStep: 0,
-      product: {
-        price: 0,
-        picture: null,
-        type: null,
-      },
       picture: null,
       type: null,
+      red: 1,
+      black: 1,
+      eraser: 1,
+      contactName: '',
+      contactSocialType: '',
+      contactValue: '',
+      price: 0,
     }
   }
 
@@ -38,14 +41,18 @@ class MainPage extends Component {
     })
   }
 
-  handleStuff = (newStuff) => {
+  handleStuffOrContact = (name, value) => {
     this.setState({
-      stuff: newStuff
+      [name]: value
     })
   }
 
+  handleSubmit = () => {
+    debugger;
+  }
+
   render() {
-    const { currentStep, product } = this.state;
+    const { currentStep } = this.state;
 
     return (
       <Fragment>
@@ -54,10 +61,9 @@ class MainPage extends Component {
         <main className="main">
           <Steps
             currentStep={currentStep}
-            product={product}
             handleType={this.handleType}
             handlePicture={this.handlePicture}
-            handleStuff={this.handleStuff}
+            handleStuffOrContact={this.handleStuffOrContact}
             data={this.state}
           />
         </main>
@@ -65,7 +71,7 @@ class MainPage extends Component {
         <Footer
           currentStep={currentStep}
           handleStep={this.handleStep}
-          product={product}
+          data={this.state}
         />
       </Fragment>
     );
