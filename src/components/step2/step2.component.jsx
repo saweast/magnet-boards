@@ -1,13 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import './step2.styles.scss';
 
-import image1 from './image1.jpg';
-import image2 from './image2.jpg';
-import image3 from './image3.jpg';
-
 import { ImageCropper } from "react-bootstrap-image-cropper";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+
+
+
 export default class Step2 extends Component {
   constructor(props) {
     super(props);
@@ -15,17 +14,17 @@ export default class Step2 extends Component {
     this.backgrounds = [
       {
         id: 1,
-        image: image1,
+        image: 'https://firebasestorage.googleapis.com/v0/b/magnet-boards.appspot.com/o/defaults%2Fbg1.png?alt=media',
         price: 50,
       },
       {
         id: 2,
-        image: image2,
+        image: 'https://firebasestorage.googleapis.com/v0/b/magnet-boards.appspot.com/o/defaults%2Fbg2.png?alt=media',
         price: 100,
       },
       {
         id: 3,
-        image: image3,
+        image: 'https://firebasestorage.googleapis.com/v0/b/magnet-boards.appspot.com/o/defaults%2Fbg3.png?alt=media',
         price: 75,
       }
     ];
@@ -35,18 +34,6 @@ export default class Step2 extends Component {
     };
 
     this.fileRef = React.createRef();
-  }
-
-  handlePictureUpload = (pictureFiles, pictureDataURLs) => {
-    this.props.handlePicture({
-      id: 0,
-      image: pictureDataURLs[0],
-      price: 250,
-    });
-
-    this.setState({
-      selected: 0
-    });
   }
 
   handlePictureChange = (event) => {
@@ -102,7 +89,6 @@ export default class Step2 extends Component {
 
             {backgrounds.map((background, index) => {
               const { id, image, price } = background;
-              const isChecked = +id === +this.state.selected ? true : false;
               return (
                 <Fragment key={id}>
                   <input
@@ -110,10 +96,9 @@ export default class Step2 extends Component {
                     type="radio"
                     name="type"
                     id={id}
-                    checked={isChecked}
                     onChange={this.handlePictureChange}
                   />
-                  <label className="type__wrapper" checked htmlFor={id}>
+                  <label className="type__wrapper" htmlFor={id}>
                     <img className="type__image" src={image} alt={`${id} background`} />
                     <img className="type__image type__image--grid" src={this.props.data.type.image} alt="apple" />
                   </label>

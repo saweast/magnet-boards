@@ -3,9 +3,6 @@ import './step1.styles.scss';
 
 import RadioType from '../radioType/radioType.component';
 
-import type1 from './type1.png';
-import type2 from './type2.png';
-
 export default class Step1 extends Component {
   constructor(props) {
     super(props);
@@ -13,14 +10,20 @@ export default class Step1 extends Component {
       types: [
         {
           id: 1,
-          image: type1,
-          name: 'Да',
+          image: 'https://firebasestorage.googleapis.com/v0/b/magnet-boards.appspot.com/o/defaults%2Fgrid01.png?alt=media',
+          name: 'Вариант Адын',
           price: 300,
         },
         {
           id: 2,
-          image: type2,
-          name: 'Ні',
+          image: 'https://firebasestorage.googleapis.com/v0/b/magnet-boards.appspot.com/o/defaults%2Fgrid02.png?alt=media',
+          name: 'Вариант Дыва',
+          price: 350,
+        },
+        {
+          id: 3,
+          image: 'https://firebasestorage.googleapis.com/v0/b/magnet-boards.appspot.com/o/defaults%2Fgrid03.png?alt=media',
+          name: 'Вориант три',
           price: 350,
         }
       ]

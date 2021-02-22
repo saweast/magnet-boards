@@ -34,6 +34,7 @@ export default class Footer extends Component {
       case 4: {
         if (contactName && contactSocialType && contactValue) {
           nextStep = currentStep + 1;
+          this.props.handleSubmit();
           break;
         } else {
           return;
