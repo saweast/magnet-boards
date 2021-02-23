@@ -45,30 +45,36 @@ class MainPage extends Component {
       contactSocialType: '',
       contactValue: '',
       price: 0,
+      isFilled: true,
     }
   }
 
   handleStep = (newStep) => {
+    window.scrollTo(0, 0);
     this.setState({
       currentStep: newStep,
+      isFilled: false,
     });
   }
 
   handleType = (newType) => {
     this.setState({
       type: newType,
+      isFilled: true,
     })
   }
 
   handlePicture = (newBackground) => {
     this.setState({
-      picture: newBackground
+      picture: newBackground,
+      isFilled: true,
     })
   }
 
   handleStuffOrContact = (name, value) => {
     this.setState({
-      [name]: value
+      [name]: value,
+      isFilled: true,
     })
   }
 

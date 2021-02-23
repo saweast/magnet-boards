@@ -3,7 +3,7 @@ import './step1.styles.scss';
 
 import RadioType from '../radioType/radioType.component';
 
-export default class Step1 extends Component {
+ class Step1 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,19 +11,19 @@ export default class Step1 extends Component {
         {
           id: 1,
           image: 'https://firebasestorage.googleapis.com/v0/b/magnet-boards.appspot.com/o/defaults%2Fgrid01.png?alt=media',
-          name: 'Вариант Адын',
+          name: 'Список дел',
           price: 300,
         },
         {
           id: 2,
           image: 'https://firebasestorage.googleapis.com/v0/b/magnet-boards.appspot.com/o/defaults%2Fgrid02.png?alt=media',
-          name: 'Вариант Дыва',
+          name: 'Список дел + трекер привычек',
           price: 350,
         },
         {
           id: 3,
           image: 'https://firebasestorage.googleapis.com/v0/b/magnet-boards.appspot.com/o/defaults%2Fgrid03.png?alt=media',
-          name: 'Вориант три',
+          name: 'Трекер привычек',
           price: 350,
         }
       ]
@@ -32,14 +32,16 @@ export default class Step1 extends Component {
 
   handleChange = (event) => {
     const { types } = this.state;
-    const selectedType = types.filter((type) => type.id === +event.currentTarget.value);
+    const selectedType = types.find((type) => type.id === +event.currentTarget.value);
 
-    this.props.handleType(selectedType[0]);
+    this.props.handleType(selectedType);
   }
 
   render = () => {
     const { title } = this.props;
     const { types } = this.state;
+
+    console.log('RENDER')
 
     return (
       <Fragment>
@@ -54,4 +56,6 @@ export default class Step1 extends Component {
       </Fragment>
     );
   }
-}
+ }
+
+ export default React.memo(Step1)

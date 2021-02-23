@@ -16,8 +16,8 @@
 }
 
 .type__wrapper {
-  &.checked {
-    border: 2px solid rgba($color: black, $alpha: 1);
+  &.type__wrapper--upload {
+    height: 33vh;
   }
 
   button {

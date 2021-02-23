@@ -12,17 +12,19 @@ export default class RadioType extends Component {
 
     return (
       <Fragment>
-        <input
-          value={id}
-          type="radio"
-          name="type"
-          id={id}
-          onChange={this.props.handleChange}
-        />
-        <label className="type__wrapper" htmlFor={id}>
-          <h3 className="type__title">{name}</h3>
-          <img className="type__image" src={image} alt={name} />
-        </label>
+        <div style={{ position: 'relative' }}>
+          <input
+            value={id}
+            type="radio"
+            name="type"
+            id={id}
+            onChange={this.props.handleChange}
+          />
+          <label className="type__wrapper" htmlFor={id}>
+            <h3 className="type__title">{name}</h3>
+            <img className="type__image" src={image} alt={name} />
+          </label>
+        </div>
       </Fragment>
     );
   }

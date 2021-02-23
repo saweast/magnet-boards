@@ -48,15 +48,35 @@ export default class Footer extends Component {
     this.props.handleStep(nextStep);
   }
 
+  handlePrevStep = () => {
+    const { currentStep } = this.props.data;
+    let prevStep = currentStep - 1;
+
+    this.props.handleStep(prevStep);
+  }
+
   render = () => {
     const { stepsCount } = this;
     const { currentStep, data } = this.props;
+    const { isFilled } = data;
 
     let buttonTitle = undefined;
 
     switch (currentStep) {
       case 0: {
-        buttonTitle = 'Розпочати';
+        buttonTitle = 'Выбрать доску';
+        break;
+      }
+      case 1: {
+        buttonTitle = 'Выбрать изображение';
+        break;
+      }
+      case 2: {
+        buttonTitle = 'Выбрать маркеры';
+        break;
+      }
+      case 3: {
+        buttonTitle = 'Заказать';
         break;
       }
       case 5: {
@@ -70,14 +90,15 @@ export default class Footer extends Component {
 
     if (currentStep < stepsCount) {
       return (
-          <footer className="footer">
-            <div className="action" onClick={ this.handleNextStep }>
-              <div className="action__info">
-                {currentStep > 0 ? <span className="action__step">Шаг {currentStep} из {stepsCount}</span> : ''}
-                {currentStep > 0 ? <span className="action__price">{data.price} грн.</span> : '' }
-              </div>
-              <span className="action__title">{buttonTitle}</span>
+        <footer className="footer">
+          {currentStep >= 1 ? <button className="action__back" onClick={ this.handlePrevStep }></button> : ''}
+          <button className={!isFilled ? 'action action--disabled' : 'action'} onClick={ this.handleNextStep }>
+            <div className="action__info">
+              {currentStep > 0 ? <span className="action__step">Шаг {currentStep} из {stepsCount}</span> : ''}
+              {currentStep > 0 ? <span className="action__price">{data.price} грн.</span> : '' }
             </div>
+            <span className="action__title">{buttonTitle}</span>
+          </button>
         </footer>
       )
     } else {

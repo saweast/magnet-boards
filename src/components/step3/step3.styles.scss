@@ -1,9 +1,7 @@
 .boardPreview {
-  height: 300px;
-  width: 400px;
+  height: 33vh;
+  width: auto;
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
 
   margin-bottom: 50px;
 
@@ -14,5 +12,7 @@
     width: inherit;
     object-fit: contain;
     object-position: center;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

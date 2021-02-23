@@ -5,8 +5,6 @@ import { ImageCropper } from "react-bootstrap-image-cropper";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
-
 export default class Step2 extends Component {
   constructor(props) {
     super(props);
@@ -76,17 +74,7 @@ export default class Step2 extends Component {
         <article className="content">
           <h1 className="content__title">Фон дошки</h1>
 
-          <section className="type type--background">
-
-            <div className={`type__wrapper ${0 === +this.state.selected ? 'checked' : ''}`}>
-              <ImageCropper
-                fileRef={this.fileRef}
-                onChange={this.handleChange}
-                outputOptions={{ mimeType: 'image/png' }}
-                previewOptions={{ children: 'Обрати зображення' }}
-              />
-            </div>
-
+          <section className="type">
             {backgrounds.map((background, index) => {
               const { id, image, price } = background;
               return (
@@ -105,6 +93,16 @@ export default class Step2 extends Component {
                 </Fragment>
               );
             })}
+
+            <div className={`type__wrapper type__wrapper--upload ${0 === +this.state.selected ? 'checked' : ''}`}>
+              <ImageCropper
+                fileRef={this.fileRef}
+                onChange={this.handleChange}
+                outputOptions={{ mimeType: 'image/png' }}
+                cropOptions={{ aspect: 4961  /  3544, maxZoom: 3 }}
+                previewOptions={{ children: 'Загрузить свое изображение' }}
+              />
+            </div>
           </section>
         </article>
       </Fragment>

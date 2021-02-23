@@ -1,58 +1,42 @@
-.content {
-    padding: 20px 20px;
-
-    @media (min-width: 768px) {
-        padding: 20px 40px;
-    }
-}
-
-.content__title {
-    margin-bottom: 35px;
-    font-size: 45px;
-
-    @media (min-width: 768px) {
-        margin-bottom: 50px;
-        font-size: 70px;
-    }
-}
-
 .type {
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 50px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
 
     @media (min-width: 768px) {
-        gap: 50px;
+        gap: 75px;
+        max-width: 768px;
     }
 
     .type__wrapper {
         display: flex;
-        border: 2px solid rgba($color: black, $alpha: 0.2);
         cursor: pointer;
         position: relative;
+        background-color: white;
 
         &:hover,
         &:focus {
-            .type__title,
             .type__image {
-                opacity: 1;
+                box-shadow: -4px -4px 4px 4px rgb(245, 245, 245), 4px 4px 4px 4px rgb(224, 221, 221);
             }
         }
 
         .type__title {
             position: absolute;
-            top: -25px;
+            top: -1.1em;
             line-height: 1;
-            text-transform: uppercase;
-            opacity: 0.5;
+            font-size: 18px;
         }
 
         .type__image {
-            height: 25vh;
+            height: 33vh;
             width: 100%;
             object-fit: contain;
             object-position: center;
-            opacity: 0.5;
+            box-shadow: -2px -2px 2px 2px rgb(245, 245, 245), 2px 2px 2px 2px rgb(224, 221, 221);
 
             &.type__image--grid {
                 position: absolute;
@@ -65,18 +49,13 @@
         height: 0;
         width: 0;
         opacity: 0;
-        visibility: 0;
+        visibility: hidden;
 
         &:checked {
             & + label.type__wrapper {
-                border: 2px solid rgba($color: black, $alpha: 1);
-
-                .type__title {
-                    opacity: 1;
-                }
 
                 .type__image {
-                    opacity: 1;
+                    box-shadow: -4px -4px 4px 4px rgb(245, 245, 245), 4px 4px 4px 4px rgb(224, 221, 221);
                 }
             }
         }
