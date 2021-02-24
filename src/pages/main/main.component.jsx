@@ -51,9 +51,10 @@ class MainPage extends Component {
 
   handleStep = (newStep) => {
     window.scrollTo(0, 0);
+    let isFilled = newStep === 3 ? true : false;
     this.setState({
       currentStep: newStep,
-      isFilled: false,
+      isFilled,
     });
   }
 

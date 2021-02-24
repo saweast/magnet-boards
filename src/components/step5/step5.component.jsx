@@ -11,9 +11,9 @@ export default class Step5 extends Component {
   render = () => {
     const { contactName } = this.props.data;
     return (
-      <div className="div">
+      <div className="thankyou">
         <h2>{contactName} дякуємо за звернення!</h2>
-        <h3>ми за вами звяжемося для уточнення деталей</h3>
+        <h3>Ми за вами звяжемося для уточнення деталей</h3>
       </div>
     );
   }

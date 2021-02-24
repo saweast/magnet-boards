@@ -34,13 +34,13 @@ export default class Step4 extends Component {
 
         <section className="stuff__list">
           { red ? <div className="stuff">
-            Червоний - {red} - {red * 2} грн.
+            Червоний маркер - {red}
           </div> : '' }
           { black ? <div className="stuff">
-            Чорний - {black} - {black * 2} грн.
+            Чорний маркер - {black}
           </div> : '' }
           { eraser ? <div className="stuff">
-            Гумка - {eraser} - {eraser * 3} грн.
+            Гумка - {eraser}
           </div> : '' }
         </section>
 
@@ -49,12 +49,11 @@ export default class Step4 extends Component {
           <input type="text" id="contactName" name="contactName" placeholder="Дориан" defaultValue={contactName} onChange={ this.handleChange }/>
 
           <label>Тип зв'язку</label>
-          <input type="radio" name="contactSocialType" value="telegram" onChange={ this.handleChange } />
-          <input type="radio" name="contactSocialType" value="viber" onChange={ this.handleChange } />
-          <input type="radio" name="contactSocialType" value="email" onChange={ this.handleChange } />
-          <input type="radio" name="contactSocialType" value="instagram" onChange={ this.handleChange } />
-          <input type="radio" name="contactSocialType" value="phone" onChange={ this.handleChange } />
-          <input type="radio" name="contactSocialType" value="facebook" onChange={ this.handleChange } />
+          <div className="radioWrapper">
+            <input type="radio" name="contactSocialType" value="telegram" onChange={ this.handleChange } />
+            <input type="radio" name="contactSocialType" value="viber" onChange={ this.handleChange } />
+            <input type="radio" name="contactSocialType" value="phone" onChange={ this.handleChange } />
+          </div>
 
           {contactName && contactSocialType ?
             <Fragment>

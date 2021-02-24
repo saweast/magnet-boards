@@ -71,7 +71,7 @@ export default class Step3 extends Component {
                   <div className="boardAdditional__item item" key={index}>
                     <h4 className="item__color">{marker.color}</h4>
                     <div className="item__numberWrapper">
-                      <button className="decrease" onClick={() => { this.handleChange(marker.id, this.state[marker.id] - 1) }}>-</button>
+                      <button className="decrease" onClick={() => { this.handleChange(marker.id, this.state[marker.id] - 1) }}>&minus;</button>
                       <input readOnly name="Color" type="number" className="item__numberInput" value={+this.state[marker.id]} />
                       <button className="increase" onClick={() => { this.handleChange(marker.id, this.state[marker.id] + 1) }}>+</button>
                     </div>
@@ -89,7 +89,7 @@ export default class Step3 extends Component {
                   <div className="boardAdditional__item item" key={index}>
                     <h4 className="item__color">{eraser.color}</h4>
                     <div className="item__numberWrapper">
-                      <button className="decrease" onClick={() => { this.handleChange(eraser.id, this.state[eraser.id] - 1) }}>-</button>
+                      <button className="decrease" onClick={() => { this.handleChange(eraser.id, this.state[eraser.id] - 1) }}>&minus;</button>
                       <input readOnly name="Color" type="number" className="item__numberInput" value={+this.state[eraser.id]} />
                       <button className="increase" onClick={() => { this.handleChange(eraser.id, this.state[eraser.id]+1) }}>+</button>
                     </div>

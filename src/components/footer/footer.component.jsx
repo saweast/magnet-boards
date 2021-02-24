@@ -76,7 +76,11 @@ export default class Footer extends Component {
         break;
       }
       case 3: {
-        buttonTitle = 'Заказать';
+        buttonTitle = 'Контакты';
+        break;
+      }
+      case 4: {
+        buttonTitle = 'Оформить';
         break;
       }
       case 5: {
@@ -95,7 +99,7 @@ export default class Footer extends Component {
           <button className={!isFilled ? 'action action--disabled' : 'action'} onClick={ this.handleNextStep }>
             <div className="action__info">
               {currentStep > 0 ? <span className="action__step">Шаг {currentStep} из {stepsCount}</span> : ''}
-              {currentStep > 0 ? <span className="action__price">{data.price} грн.</span> : '' }
+              {/* {currentStep > 0 ? <span className="action__price">{data.price} грн.</span> : '' } */}
             </div>
             <span className="action__title">{buttonTitle}</span>
           </button>
